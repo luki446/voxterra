@@ -51,3 +51,11 @@ auto Shader::use() const -> void
 {
     glUseProgram(this->programId);
 }
+
+auto Shader::setUniformTexture(const std::string& name, Texture& text, GLint slot) const -> void
+{
+    GLint location = glGetUniformLocation(this->programId, name.c_str());
+    glUniform1i(location, slot);
+
+    text.bind(slot);
+}

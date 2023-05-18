@@ -2,14 +2,12 @@
 #include "GLFW/glfw3.h"
 #include "spdlog/spdlog.h"
 
-static auto glfw_error_callback(int error, const char* description) -> void
-{
-    spdlog::error("GLFW Error ({}): {}", error, description);
-}
-
 Window::Window(size_t width, size_t height, std::string_view title)
 {
-    glfwSetErrorCallback(glfw_error_callback);
+    glfwSetErrorCallback([](int error, const char* description)
+    {
+        spdlog::error("GLFW Error ({}): {}", error, description);
+    });
 
     if(!glfwInit())
     {

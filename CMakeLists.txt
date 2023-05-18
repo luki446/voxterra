@@ -11,6 +11,9 @@ set(SOURCE_FILES
     src/shader.cpp
     src/vao.cpp
     src/vbo.cpp
+    src/texture.cpp
+
+    src/stb/stb_image.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
