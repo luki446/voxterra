@@ -4,6 +4,7 @@ project(Voxterra LANGUAGES CXX)
 
 set(SOURCE_FILES
     src/main.cpp
+    src/game_window.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

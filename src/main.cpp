@@ -1,12 +1,8 @@
-#include "raylib.h"
+#include "game_window.hpp"
 
 int main(int argc, char** argv) {
-  InitWindow(800, 450, "Ralib example");
-
-  while(!WindowShouldClose()) {
-    BeginDrawing();
-      ClearBackground(RAYWHITE);
-      DrawText("First Window!", 190, 200, 20, LIGHTGRAY);
-    EndDrawing();
-  }
+  GameWindow game_window{};
+  game_window.run();
+  
+  return 0;
 }
