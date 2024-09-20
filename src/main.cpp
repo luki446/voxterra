@@ -1,7 +1,7 @@
-#include "game_window.hpp"
+#include "window.hpp"
 
 int main(int argc, char** argv) {
-  GameWindow game_window{};
+  Core::Window game_window{};
   game_window.run();
   
   return 0;

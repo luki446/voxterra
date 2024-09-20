@@ -1,13 +1,37 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(Voxterra LANGUAGES CXX)
+project(Voxterra LANGUAGES CXX VERSION 0.1.0)
 
 set(SOURCE_FILES
     src/main.cpp
-    src/game_window.cpp
+    src/window.cpp
+    src/camera.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+
+find_package(Git REQUIRED)
+
+if(Git_FOUND)
+  execute_process(
+    COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    OUTPUT_VARIABLE GIT_COMMIT_HASH
+    ERROR_QUIET
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+endif()
+
+if(NOT GIT_COMMIT_HASH)
+  set(GIT_COMMIT_HASH "unhashed")
+endif()
+
+configure_file(
+  src/voxconfig.h.in
+  ${CMAKE_CURRENT_BINARY_DIR}/voxconfig.h
+)
+
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)
