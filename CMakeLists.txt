@@ -5,7 +5,7 @@ project(Voxterra LANGUAGES CXX VERSION 0.1.0)
 set(SOURCE_FILES
     src/main.cpp
     src/window.cpp
-    src/camera.cpp
+    src/player.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
@@ -36,7 +36,8 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)
 
-# Download a CPM.cmake
+set(OPENGL_VERSION "3.3")
+
 file(
   DOWNLOAD
   https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.38.7/CPM.cmake
