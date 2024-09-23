@@ -48,3 +48,18 @@ include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
 CPMAddPackage("gh:raysan5/raylib#5.0")
 
 target_link_libraries(${PROJECT_NAME} raylib)
+
+file(
+  GLOB
+  PNG_FILES
+  "*.png"
+)
+
+foreach(PNG_FILE ${PNG_FILES})
+  file(
+    COPY
+    ${PNG_FILE}
+    DESTINATION
+    ${CMAKE_CURRENT_BINARY_DIR}
+  )
+endforeach()

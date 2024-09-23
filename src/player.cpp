@@ -1,8 +1,8 @@
-#include "camera.hpp"
+#include "player.hpp"
 
 namespace Core {
 
-Camera::Camera() {
+Player::Player() {
     this->camera_impl.position = (Vector3){ 0.0f, 2.0f, 4.0f };
     this->camera_impl.target = (Vector3){ 0.0f, 2.0f, 0.0f };
     this->camera_impl.up = (Vector3){ 0.0f, 1.0f, 0.0f };
@@ -10,7 +10,7 @@ Camera::Camera() {
     this->camera_impl.projection = CAMERA_PERSPECTIVE;
 }
 
-void Camera::update() {
+void Player::update() {
     UpdateCameraPro(&this->camera_impl,
             (Vector3){
                 (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP))*0.1f -      // Move forward-backward
@@ -27,7 +27,7 @@ void Camera::update() {
             GetMouseWheelMove()*0.9f);  
 }
 
-RaylibCamera const& Camera::get_impl() {
+RaylibCamera const& Player::get_camera_impl() {
     return this->camera_impl;
 }
 

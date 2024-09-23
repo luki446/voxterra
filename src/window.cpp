@@ -1,6 +1,6 @@
 #include "window.hpp"
 
-#include "camera.hpp"
+#include "player.hpp"
 #include "raylib.h"
 #include "voxconfig.h"
 #include <string>
@@ -12,20 +12,22 @@ Window::Window(int width, int height) {
 }
 
 void Window::run() {
-  Core::Camera camera{};
+  Core::Player player{};
 
-  std::string title_version = "Voxterra " + std::string(VOX_VERSION) + " " + std::string(GIT_COMMIT_HASH);
+  const std::string title_version = "Voxterra " + std::string(VOX_VERSION);
+  std::string fps_info = "FPS: ";
 
   DisableCursor();
   SetTargetFPS(60);
 
   while(!WindowShouldClose()) {
-    camera.update();
+    player.update();
+
 
     BeginDrawing();
-      ClearBackground(RAYWHITE);
+      ClearBackground(SKYBLUE);
       
-      BeginMode3D(camera.get_impl());
+      BeginMode3D(player.get_camera_impl());
 
         DrawPlane((Vector3){ 0.0f, 0.0f, 0.0f }, (Vector2){ 32.0f, 32.0f }, LIGHTGRAY);
 
@@ -34,7 +36,7 @@ void Window::run() {
 
       EndMode3D();
 
-      DrawText(title_version.c_str(), 10, 10, 20, DARKGRAY);
+      DrawText(title_version.c_str(), 10, 10, 30, DARKGRAY);
 
     EndDrawing();
   }

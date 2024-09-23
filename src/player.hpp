@@ -6,11 +6,11 @@ namespace Core {
 
 using RaylibCamera = struct Camera3D;
 
-class Camera {
+class Player {
 public:
-    Camera();
+    Player();
     void update();
-    RaylibCamera const& get_impl();
+    RaylibCamera const& get_camera_impl();
 private:
     RaylibCamera camera_impl{ 0 };
 };
