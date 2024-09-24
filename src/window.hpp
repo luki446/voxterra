@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 constexpr inline size_t SCREEN_WIDTH = 1280;
 constexpr inline size_t SCREEN_HEIGHT = 720;
 

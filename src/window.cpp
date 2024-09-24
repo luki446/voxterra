@@ -23,6 +23,8 @@ void Window::run() {
   while(!WindowShouldClose()) {
     player.update();
 
+    if(IsKeyReleased(KEY_F11))
+      ToggleFullscreen();
 
     BeginDrawing();
       ClearBackground(SKYBLUE);

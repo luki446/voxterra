@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.16)
 
 project(Voxterra LANGUAGES CXX VERSION 0.1.0)
 
+if (NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE RelWithDebInfo)
+endif()
+
 set(SOURCE_FILES
     src/main.cpp
     src/window.cpp
