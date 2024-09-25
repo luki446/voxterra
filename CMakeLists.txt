@@ -10,6 +10,8 @@ set(SOURCE_FILES
     src/main.cpp
     src/window.cpp
     src/player.cpp
+    src/block.cpp
+    src/resource_manager.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

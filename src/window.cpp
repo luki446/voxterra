@@ -1,5 +1,6 @@
 #include "window.hpp"
 
+#include "block.hpp"
 #include "player.hpp"
 #include "raylib.h"
 #include "voxconfig.h"
@@ -15,7 +16,8 @@ void Window::run() {
   Core::Player player{};
 
   const std::string title_version = "Voxterra " + std::string(VOX_VERSION);
-  std::string fps_info = "FPS: ";
+
+  const Core::Block block = Core::Block().at({ 0.0f, 0.0f, 0.0f }); 
 
   DisableCursor();
   SetTargetFPS(60);
@@ -31,10 +33,9 @@ void Window::run() {
       
       BeginMode3D(player.get_camera_impl());
 
-        DrawPlane((Vector3){ 0.0f, 0.0f, 0.0f }, (Vector2){ 32.0f, 32.0f }, LIGHTGRAY);
+        DrawPlane((Vector3){ 0.0f, -0.5f, 0.0f }, (Vector2){ 32.0f, 32.0f }, LIGHTGRAY);
 
-        DrawCube((Vector3){ 0.0f, 1.0f, 0.0f }, 1., 1., 1., RED);
-        DrawCubeWires((Vector3){ 0.0f, 1.0f, 0.0f }, 1., 1., 1., MAROON);
+        block.draw();
 
       EndMode3D();
 
