@@ -8,10 +8,10 @@ constexpr inline size_t SCREEN_HEIGHT = 720;
 namespace Core {
 
 class Window {
-public:
-    Window(int width = SCREEN_WIDTH, int height = SCREEN_HEIGHT);
-    ~Window();
-    void run();
+ public:
+  Window(int width = SCREEN_WIDTH, int height = SCREEN_HEIGHT);
+  ~Window();
+  void run();
 };
 
-} // namespace Core
+}  // namespace Core
