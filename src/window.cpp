@@ -15,17 +15,17 @@ Window::Window(int width, int height) {
 }
 
 void Window::run() {
-  Vox::Player player{};
+  Vox::Player main_player{};
 
   const std::string title_version = "Voxterra " + std::string(VOX_VERSION);
 
-  const Vox::Block block = Vox::Block().at({0.0f, 0.0f, 0.0f});
+  const Vox::Block single_block = Vox::Block().at({0.0f, 0.0f, 0.0f});
 
   DisableCursor();
   SetTargetFPS(60);
 
   while (!WindowShouldClose()) {
-    player.update();
+    main_player.update();
 
     if (IsKeyReleased(KEY_F11)) ToggleFullscreen();
 
@@ -33,16 +33,16 @@ void Window::run() {
     BeginDrawing();
       ClearBackground(SKYBLUE);
 
-      BeginMode3D(player.get_camera_impl());
+      BeginMode3D(main_player.get_camera_impl());
 
-        DrawPlane((Vector3){0.0f, -0.5f, 0.0f}, (Vector2){32.0f, 32.0f}, LIGHTGRAY);
+        DrawPlane((Vector3){0.0f, 0.0f, 0.0f}, (Vector2){32.0f, 32.0f}, LIGHTGRAY);
+        DrawGrid(64, 0.5f);
 
-        block.draw();
+        single_block.draw();
 
       EndMode3D();
 
       DrawText(title_version.c_str(), 10, 10, 30, DARKGRAY);
-
     EndDrawing();
     // clang-format on
   }
