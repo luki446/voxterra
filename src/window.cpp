@@ -2,11 +2,10 @@
 
 #include <string>
 
-#include "block.hpp"
-#include "world.hpp"
 #include "player.hpp"
 #include "raylib.h"
 #include "voxconfig.h"
+#include "world.hpp"
 
 namespace Vox {
 

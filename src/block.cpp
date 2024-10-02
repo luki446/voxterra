@@ -9,7 +9,6 @@ namespace Vox {
 
 Block::Block(BlockType type) { this->type = type; }
 
-
 void Block::draw_at(Vector3 const& pos) const {
   const float x = pos.x;
   const float y = pos.y;

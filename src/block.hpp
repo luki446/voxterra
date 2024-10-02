@@ -18,7 +18,7 @@ class Block {
   void draw_at(Vector3 const& position) const;
 
  private:
-  BlockType type;  
+  BlockType type;
 };
 
 }  // namespace Vox
