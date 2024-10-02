@@ -7,7 +7,7 @@
 #include "raylib.h"
 #include "voxconfig.h"
 
-namespace Core {
+namespace Vox {
 
 Window::Window(int width, int height) {
   SetTraceLogLevel(TraceLogLevel::LOG_WARNING);
@@ -15,11 +15,11 @@ Window::Window(int width, int height) {
 }
 
 void Window::run() {
-  Core::Player player{};
+  Vox::Player player{};
 
   const std::string title_version = "Voxterra " + std::string(VOX_VERSION);
 
-  const Core::Block block = Core::Block().at({0.0f, 0.0f, 0.0f});
+  const Vox::Block block = Vox::Block().at({0.0f, 0.0f, 0.0f});
 
   DisableCursor();
   SetTargetFPS(60);
@@ -50,4 +50,4 @@ void Window::run() {
 
 Window::~Window() { CloseWindow(); }
 
-}  // namespace Core
+}  // namespace Vox

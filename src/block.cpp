@@ -5,7 +5,7 @@
 
 #include "resource_manager.hpp"
 
-namespace Core {
+namespace Vox {
 
 Block::Block() { position = {0.0f, 0.0f, 0.0f}; }
 
@@ -99,4 +99,4 @@ void Block::draw() const {
   rlSetTexture(0);
 }
 
-}  // namespace Core
+}  // namespace Vox

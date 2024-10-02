@@ -1,6 +1,6 @@
 #include "resource_manager.hpp"
 
-namespace Core {
+namespace Vox {
 
 ResourceManager::ResourceManager() { this->load_textures(); }
 
@@ -9,4 +9,4 @@ void ResourceManager::load_textures() {
       LoadTexture("dirt.png");
 }
 
-}  // namespace Core
+}  // namespace Vox

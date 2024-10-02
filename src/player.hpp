@@ -2,7 +2,7 @@
 
 #include <raylib.h>
 
-namespace Core {
+namespace Vox {
 
 using RaylibCamera = struct Camera3D;
 
@@ -16,4 +16,4 @@ class Player {
   RaylibCamera camera_impl{0};
 };
 
-}  // namespace Core
+}  // namespace Vox

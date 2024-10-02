@@ -4,7 +4,7 @@
 
 #include "raylib.h"
 
-namespace Core {
+namespace Vox {
 
 enum class BlockType : uint32_t {
   DIRT = 0,
@@ -22,4 +22,4 @@ class Block {
   Vector3 position;
 };
 
-}  // namespace Core
+}  // namespace Vox

@@ -5,7 +5,7 @@
 constexpr inline size_t SCREEN_WIDTH = 1280;
 constexpr inline size_t SCREEN_HEIGHT = 720;
 
-namespace Core {
+namespace Vox {
 
 class Window {
  public:
@@ -14,4 +14,4 @@ class Window {
   void run();
 };
 
-}  // namespace Core
+}  // namespace Vox

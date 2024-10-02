@@ -6,7 +6,7 @@
 
 #include "block.hpp"
 
-namespace Core {
+namespace Vox {
 
 class ResourceManager {
  public:
@@ -28,4 +28,4 @@ class ResourceManager {
   void load_textures();
 };
 
-}  // namespace Core
+}  // namespace Vox
