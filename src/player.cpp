@@ -2,7 +2,7 @@
 
 namespace Vox {
 
-Player::Player() {
+Player::Player(World& world) : main_world(world) {
   this->camera_impl.position = (Vector3){0.0f, 2.0f, 4.0f};
   this->camera_impl.target = (Vector3){0.0f, 2.0f, 0.0f};
   this->camera_impl.up = (Vector3){0.0f, 1.0f, 0.0f};
@@ -28,7 +28,5 @@ void Player::update() {
                   },
                   GetMouseWheelMove() * 0.9f);
 }
-
-RaylibCamera const& Player::get_camera_impl() { return this->camera_impl; }
 
 }  // namespace Vox

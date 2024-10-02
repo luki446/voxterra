@@ -14,6 +14,8 @@ struct Vector3Comparator {
   }
 };
 
+using GameMapStructure = std::map<Vector3, Block, Vector3Comparator>;
+
 constexpr inline size_t CHUNK_SIZE = 16;
 
 class World {
@@ -21,8 +23,12 @@ class World {
   World();
   void draw() const;
 
+  inline GameMapStructure const& get_blocks_structure() const {
+    return this->blocks_structure;
+  }
+
  private:
-  std::map<Vector3, Block, Vector3Comparator> blocks_structure{};
+  GameMapStructure blocks_structure{};
 };
 
 }  // namespace Vox

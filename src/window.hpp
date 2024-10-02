@@ -10,6 +10,10 @@ namespace Vox {
 class Window {
  public:
   Window(int width = SCREEN_WIDTH, int height = SCREEN_HEIGHT);
+
+  Window(const Window&) = delete;
+  Window& operator=(const Window&) = delete;
+
   ~Window();
   void run();
 };

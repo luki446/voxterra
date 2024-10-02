@@ -2,18 +2,21 @@
 
 #include <raylib.h>
 
+#include "world.hpp"
 namespace Vox {
 
 using RaylibCamera = struct Camera3D;
 
 class Player {
  public:
-  Player();
+  explicit Player(World& world);
+
   void update();
-  RaylibCamera const& get_camera_impl();
+  constexpr RaylibCamera const& get_camera_impl() { return this->camera_impl; }
 
  private:
   RaylibCamera camera_impl{0};
+  World& main_world;
 };
 
 }  // namespace Vox

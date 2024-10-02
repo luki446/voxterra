@@ -15,8 +15,8 @@ Window::Window(int width, int height) {
 }
 
 void Window::run() {
-  Vox::Player main_player{};
   Vox::World main_world{};
+  Vox::Player main_player{main_world};
 
   const std::string title_version = "Voxterra " + std::string(VOX_VERSION);
 
