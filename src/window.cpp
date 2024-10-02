@@ -3,6 +3,7 @@
 #include <string>
 
 #include "block.hpp"
+#include "world.hpp"
 #include "player.hpp"
 #include "raylib.h"
 #include "voxconfig.h"
@@ -16,10 +17,9 @@ Window::Window(int width, int height) {
 
 void Window::run() {
   Vox::Player main_player{};
+  Vox::World main_world{};
 
   const std::string title_version = "Voxterra " + std::string(VOX_VERSION);
-
-  const Vox::Block single_block = Vox::Block().at({0.0f, 0.0f, 0.0f});
 
   DisableCursor();
   SetTargetFPS(60);
@@ -35,11 +35,9 @@ void Window::run() {
 
       BeginMode3D(main_player.get_camera_impl());
 
-        DrawPlane((Vector3){0.0f, 0.0f, 0.0f}, (Vector2){32.0f, 32.0f}, LIGHTGRAY);
         DrawGrid(64, 0.5f);
 
-        single_block.draw();
-
+        main_world.draw();
       EndMode3D();
 
       DrawText(title_version.c_str(), 10, 10, 30, DARKGRAY);

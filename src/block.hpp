@@ -14,12 +14,11 @@ enum class BlockType : uint32_t {
 
 class Block {
  public:
-  Block();
-  Block& at(Vector3 const& position);
-  void draw() const;
+  Block(BlockType type);
+  void draw_at(Vector3 const& position) const;
 
  private:
-  Vector3 position;
+  BlockType type;  
 };
 
 }  // namespace Vox

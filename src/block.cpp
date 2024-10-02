@@ -7,17 +7,13 @@
 
 namespace Vox {
 
-Block::Block() { position = {0.0f, 0.0f, 0.0f}; }
+Block::Block(BlockType type) { this->type = type; }
 
-Block& Block::at(Vector3 const& position) {
-  this->position = position;
-  return *this;
-}
 
-void Block::draw() const {
-  const float x = position.x;
-  const float y = position.y;
-  const float z = position.z;
+void Block::draw_at(Vector3 const& pos) const {
+  const float x = pos.x;
+  const float y = pos.y;
+  const float z = pos.z;
 
   constexpr static float width = 1.0f;
   constexpr static float height = 1.0f;
@@ -26,7 +22,7 @@ void Block::draw() const {
   constexpr static Color color = RAYWHITE;
 
   rlSetTexture(ResourceManager::get_instance()
-                   .textures[static_cast<uint32_t>(BlockType::DIRT)]
+                   .textures[static_cast<uint32_t>(this->type)]
                    .id);
 
   // clang-format off

@@ -12,6 +12,7 @@ set(SOURCE_FILES
     src/player.cpp
     src/block.cpp
     src/resource_manager.cpp
+    src/world.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
