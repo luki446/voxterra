@@ -47,9 +47,9 @@ set(OPENGL_VERSION "3.3")
 
 file(
   DOWNLOAD
-  https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.38.7/CPM.cmake
+  https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.40.5/CPM.cmake
   ${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake
-  EXPECTED_HASH SHA256=83e5eb71b2bbb8b1f2ad38f1950287a057624e385c238f6087f94cdfc44af9c5
+  EXPECTED_HASH SHA256=C46B876AE3B9F994B4F05A4C15553E0485636862064F1FCC9D8B4F832086BC5D
 )
 include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
 
