@@ -31,63 +31,63 @@ void Block::draw_at(Vector3 const& pos) const {
     // Front Face
     rlNormal3f(0.0f, 0.0f, 1.0f);  // Normal Pointing Towards Viewer
     rlTexCoord2f(0.0f, 0.0f);
-    rlVertex3f(x - width / 2, y - height / 2, z + length / 2);
+    rlVertex3f(x, y, z + length);
     rlTexCoord2f(1.0f, 0.0f);
-    rlVertex3f(x + width / 2, y - height / 2, z + length / 2);
+    rlVertex3f(x + width, y, z + length);
     rlTexCoord2f(1.0f, 1.0f);
-    rlVertex3f(x + width / 2, y + height / 2, z + length / 2);
+    rlVertex3f(x + width, y + height, z + length);
     rlTexCoord2f(0.0f, 1.0f);
-    rlVertex3f(x - width / 2, y + height / 2, z + length / 2);
+    rlVertex3f(x, y + height, z + length);
     // Back Face
     rlNormal3f(0.0f, 0.0f, -1.0f);  // Normal Pointing Away From Viewer
     rlTexCoord2f(1.0f, 0.0f);
-    rlVertex3f(x - width / 2, y - height / 2, z - length / 2);
+    rlVertex3f(x, y, z);
     rlTexCoord2f(1.0f, 1.0f);
-    rlVertex3f(x - width / 2, y + height / 2, z - length / 2);
+    rlVertex3f(x, y + height, z);
     rlTexCoord2f(0.0f, 1.0f);
-    rlVertex3f(x + width / 2, y + height / 2, z - length / 2);
+    rlVertex3f(x + width, y + height, z);
     rlTexCoord2f(0.0f, 0.0f);
-    rlVertex3f(x + width / 2, y - height / 2, z - length / 2);
+    rlVertex3f(x + width, y, z);
     // Top Face
     rlNormal3f(0.0f, 1.0f, 0.0f);  // Normal Pointing Up
     rlTexCoord2f(0.0f, 1.0f);
-    rlVertex3f(x - width / 2, y + height / 2, z - length / 2);
+    rlVertex3f(x, y + height, z);
     rlTexCoord2f(0.0f, 0.0f);
-    rlVertex3f(x - width / 2, y + height / 2, z + length / 2);
+    rlVertex3f(x, y + height, z + length);
     rlTexCoord2f(1.0f, 0.0f);
-    rlVertex3f(x + width / 2, y + height / 2, z + length / 2);
+    rlVertex3f(x + width, y + height, z + length);
     rlTexCoord2f(1.0f, 1.0f);
-    rlVertex3f(x + width / 2, y + height / 2, z - length / 2);
+    rlVertex3f(x + width, y + height, z);
     // Bottom Face
     rlNormal3f(0.0f, -1.0f, 0.0f);  // Normal Pointing Down
     rlTexCoord2f(1.0f, 1.0f);
-    rlVertex3f(x - width / 2, y - height / 2, z - length / 2);
+    rlVertex3f(x, y, z);
     rlTexCoord2f(0.0f, 1.0f);
-    rlVertex3f(x + width / 2, y - height / 2, z - length / 2);
+    rlVertex3f(x + width, y, z);
     rlTexCoord2f(0.0f, 0.0f);
-    rlVertex3f(x + width / 2, y - height / 2, z + length / 2);
+    rlVertex3f(x + width, y, z + length);
     rlTexCoord2f(1.0f, 0.0f);
-    rlVertex3f(x - width / 2, y - height / 2, z + length / 2);
+    rlVertex3f(x, y, z + length);
     // Right face
     rlNormal3f(1.0f, 0.0f, 0.0f);  // Normal Pointing Right
     rlTexCoord2f(1.0f, 0.0f);
-    rlVertex3f(x + width / 2, y - height / 2, z - length / 2);
+    rlVertex3f(x + width, y, z);
     rlTexCoord2f(1.0f, 1.0f);
-    rlVertex3f(x + width / 2, y + height / 2, z - length / 2);
+    rlVertex3f(x + width, y + height, z);
     rlTexCoord2f(0.0f, 1.0f);
-    rlVertex3f(x + width / 2, y + height / 2, z + length / 2);
+    rlVertex3f(x + width, y + height, z + length);
     rlTexCoord2f(0.0f, 0.0f);
-    rlVertex3f(x + width / 2, y - height / 2, z + length / 2);
+    rlVertex3f(x + width, y, z + length);
     // Left Face
     rlNormal3f(-1.0f, 0.0f, 0.0f);  // Normal Pointing Left
     rlTexCoord2f(0.0f, 0.0f);
-    rlVertex3f(x - width / 2, y - height / 2, z - length / 2);
+    rlVertex3f(x, y, z);
     rlTexCoord2f(1.0f, 0.0f);
-    rlVertex3f(x - width / 2, y - height / 2, z + length / 2);
+    rlVertex3f(x, y, z + length);
     rlTexCoord2f(1.0f, 1.0f);
-    rlVertex3f(x - width / 2, y + height / 2, z + length / 2);
+    rlVertex3f(x, y + height, z + length);
     rlTexCoord2f(0.0f, 1.0f);
-    rlVertex3f(x - width / 2, y + height / 2, z - length / 2);
+    rlVertex3f(x, y + height, z);
   rlEnd();
   // clang-format on
 
