@@ -3,6 +3,7 @@
 #include <raylib.h>
 
 #include <map>
+#include <optional>
 
 #include "block.hpp"
 
@@ -22,6 +23,10 @@ class World {
  public:
   World();
   void draw() const;
+
+  std::optional<Vector3> is_block_at(Vector3 const& position) const;
+
+  void place_block(Vector3 position, BlockType type);
 
   inline GameMapStructure const& get_blocks_structure() const {
     return this->blocks_structure;

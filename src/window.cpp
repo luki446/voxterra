@@ -10,7 +10,6 @@
 namespace Vox {
 
 Window::Window(int width, int height) {
-  SetTraceLogLevel(TraceLogLevel::LOG_WARNING);
   InitWindow(width, height, "Voxterra game");
 }
 

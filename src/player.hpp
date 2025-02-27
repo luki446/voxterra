@@ -1,11 +1,17 @@
 #pragma once
 
 #include <raylib.h>
+#include <optional>
 
 #include "world.hpp"
 namespace Vox {
 
 using RaylibCamera = struct Camera3D;
+
+struct RaycastHit {
+  Vector3 position;
+  Vector3 normal;
+}; 
 
 class Player {
  public:
@@ -15,7 +21,9 @@ class Player {
   constexpr RaylibCamera const& get_camera_impl() { return this->camera_impl; }
 
  private:
-  RaylibCamera camera_impl{0};
+  std::optional<RaycastHit> get_ray_hit_position_to_block();
+
+  RaylibCamera camera_impl{};
   World& main_world;
 };
 
