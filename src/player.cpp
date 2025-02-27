@@ -24,6 +24,13 @@ void Player::update() {
             main_world.place_block(raycast_hit->position + raycast_hit->normal, BlockType::DIRT);
         }
     }
+
+    if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        if(auto raycast_hit = this->get_ray_hit_position_to_block()) {
+            // Remove block at hit position
+            main_world.remove_block(raycast_hit->position);
+        }
+    }
 }
 
 std::optional<RaycastHit> Player::get_ray_hit_position_to_block() {

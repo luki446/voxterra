@@ -28,6 +28,8 @@ class World {
 
   void place_block(Vector3 position, BlockType type);
 
+  void remove_block(Vector3 position);
+
   inline GameMapStructure const& get_blocks_structure() const {
     return this->blocks_structure;
   }

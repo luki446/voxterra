@@ -38,4 +38,8 @@ void World::place_block(Vector3 position, BlockType type) {
   this->blocks_structure.insert({position, Block{type}});
 }
 
+void World::remove_block(Vector3 position){
+  this->blocks_structure.erase(position);
+}
+
 }  // namespace Vox
