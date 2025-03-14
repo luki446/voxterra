@@ -39,6 +39,8 @@ void Window::run() {
       EndMode3D();
 
       DrawText(title_version.c_str(), 10, 10, 30, DARKGRAY);
+
+      main_player.draw_gui();
     EndDrawing();
     // clang-format on
   }

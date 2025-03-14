@@ -1,6 +1,8 @@
 #include "player.hpp"
 #include <raymath.h>
+#include "block.hpp"
 #include "raylib.h"
+#include "resource_manager.hpp"
 #include <cmath>
 
 namespace Vox {
@@ -21,7 +23,7 @@ void Player::update() {
             // TraceLog(LOG_INFO, "Ray hit position: %f %f %f", hit_ray->position.x, hit_ray->position.y, hit_ray->position.z);
 
             // Place block at hit position
-            main_world.place_block(raycast_hit->position + raycast_hit->normal, BlockType::DIRT);
+            main_world.place_block(raycast_hit->position + raycast_hit->normal, this->current_block);
         }
     }
 
@@ -30,6 +32,32 @@ void Player::update() {
             // Remove block at hit position
             main_world.remove_block(raycast_hit->position);
         }
+    }
+}
+
+void Player::draw_gui() {
+    constexpr static int32_t TEXTURE_SIZE = 16;
+    constexpr static float SCALE = 2.5;
+    constexpr static int32_t SLOT_SIZE = 64;
+    constexpr static int32_t SLOT_OFFSET = 20;
+
+    const auto window_width = GetScreenWidth();
+    const auto window_height = GetScreenHeight();
+
+    const int32_t slot_bar_x_start = (window_width / 2) - (((SLOT_SIZE + SLOT_OFFSET) * (int32_t)BlockType::BLOCK_TYPE_COUNT) / 2);
+
+    for(size_t i = 0; i < static_cast<uint32_t>(BlockType::BLOCK_TYPE_COUNT); ++i) {
+        const int32_t x_position = slot_bar_x_start + (SLOT_SIZE + SLOT_OFFSET) * i;
+        const int32_t y_position = window_height - SLOT_SIZE - SLOT_OFFSET;
+
+        DrawRectangle(x_position, y_position, SLOT_SIZE, SLOT_SIZE, (BlockType)i == this->current_block ? LIGHTGRAY : DARKGRAY);
+        DrawTextureEx(
+            ResourceManager::get_instance().textures[(uint32_t)i],
+            Vector2{(float)x_position + ((SLOT_SIZE - (TEXTURE_SIZE * SCALE)) / 2.0f), (float)y_position + ((SLOT_SIZE - (TEXTURE_SIZE * SCALE)) / 2.0f)},
+            0.0f,
+            SCALE,
+            WHITE
+        );
     }
 }
 
