@@ -8,6 +8,9 @@ namespace Vox {
 
 enum class BlockType : uint32_t {
   DIRT = 0,
+  COBBLE = 1,
+  WOOD = 2,
+  BRICKS = 3,
 
   BLOCK_TYPE_COUNT,
 };

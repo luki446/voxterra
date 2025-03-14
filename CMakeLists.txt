@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.20)
 
 project(Voxterra LANGUAGES CXX VERSION 0.1.0)
 
@@ -60,14 +60,16 @@ target_link_libraries(${PROJECT_NAME} raylib)
 file(
   GLOB
   PNG_FILES
-  "*.png"
+  "res/*.png"
 )
 
 foreach(PNG_FILE ${PNG_FILES})
-  file(
-    COPY
-    ${PNG_FILE}
-    DESTINATION
-    ${CMAKE_CURRENT_BINARY_DIR}
+  cmake_path(GET PNG_FILE FILENAME OUT_PNG_FILENAME)
+
+  add_custom_command(
+    TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            ${PNG_FILE}
+            ${CMAKE_CURRENT_BINARY_DIR}/${OUT_PNG_FILENAME}
   )
 endforeach()
