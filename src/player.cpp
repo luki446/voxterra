@@ -33,6 +33,19 @@ void Player::update() {
             main_world.remove_block(raycast_hit->position);
         }
     }
+    
+    if(const float scroll_movement = GetMouseWheelMove(); scroll_movement != 0.0f) {
+        if(scroll_movement > 0.0f) {
+            this->current_block = (BlockType)(((int32_t)this->current_block + 1) % (int32_t)BlockType::BLOCK_TYPE_COUNT);
+        } else {
+            if(this->current_block != (BlockType)0)
+                this->current_block = (BlockType)(((int32_t)this->current_block - 1) % (int32_t)BlockType::BLOCK_TYPE_COUNT);
+            else
+               this->current_block = (BlockType)((int32_t)BlockType::BLOCK_TYPE_COUNT - 1);
+        }
+    }
+
+
 }
 
 void Player::draw_gui() {
